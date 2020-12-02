@@ -8,7 +8,7 @@ class Profil extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            SizedBox(height: 30),
+            SizedBox(height: 50),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -20,6 +20,18 @@ class Profil extends StatelessWidget {
                       fontWeight: FontWeight.bold),
                 ),
               ],
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 20),
+              width: 100,
+              height: 100,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                image: DecorationImage(
+                  image: AssetImage("images/girl.png"),
+                ),
+                borderRadius: BorderRadius.circular(100),
+              ),
             ),
             SizedBox(height: 20),
             Padding(
@@ -36,10 +48,16 @@ class Profil extends StatelessWidget {
                   Text('azerty@azerty.com',
                       style: TextStyle(
                           color: Colors.black, fontWeight: FontWeight.bold)),
+                  SizedBox(height: 20),
+                  Text('Ville / Quartier',
+                      style: TextStyle(color: Colors.grey)),
+                  Text('Abidjan-Abobo',
+                      style: TextStyle(
+                          color: Colors.black, fontWeight: FontWeight.bold)),
                 ],
               ),
             ),
-            SizedBox(height: 30),
+            SizedBox(height: 40),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
