@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/settings/settings.dart';
 
 class Authen extends StatefulWidget {
   @override
@@ -69,6 +70,7 @@ class _AuthenState extends State<Authen> with SingleTickerProviderStateMixin {
   }
 
   Widget build(BuildContext context) {
+    var settings = ScreenSettings(context);
     return DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -76,7 +78,7 @@ class _AuthenState extends State<Authen> with SingleTickerProviderStateMixin {
         body: Column(
           children: <Widget>[
             Container(
-              height: 300,
+              height: settings.height,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
@@ -108,7 +110,7 @@ class _AuthenState extends State<Authen> with SingleTickerProviderStateMixin {
                     Spacer(),
                     Container(
                       height: 60,
-                      width: MediaQuery.of(context).size.width,
+                      width: MediaQuery.of(context).size.width / 1.2,
                       child: TabBar(
                         tabs: [
                           Container(
@@ -130,7 +132,7 @@ class _AuthenState extends State<Authen> with SingleTickerProviderStateMixin {
                         indicatorColor: Color.fromRGBO(239, 46, 41, 1),
                         labelColor: Colors.black,
                         indicatorSize: TabBarIndicatorSize.tab,
-                        indicatorWeight: 3,
+                        indicatorWeight: 1,
                         indicatorPadding: EdgeInsets.all(10),
                         controller: _tabController,
                       ),

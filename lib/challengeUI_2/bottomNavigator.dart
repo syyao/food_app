@@ -38,19 +38,19 @@ class _BottomNavigatorState extends State<BottomNavigator> {
           onTap: onTapped,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              label: "",
+              title: Text(""),
               icon: Icon(Icons.home),
             ),
             BottomNavigationBarItem(
-              label: "",
+              title: Text(""),
               icon: Icon(Icons.favorite_border),
             ),
             BottomNavigationBarItem(
-              label: "",
+              title: Text(""),
               icon: Icon(Icons.person),
             ),
             BottomNavigationBarItem(
-              label: "",
+              title: Text(""),
               icon: Icon(
                 Icons.schedule,
               ),
