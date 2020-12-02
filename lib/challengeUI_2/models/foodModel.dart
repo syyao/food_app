@@ -16,11 +16,13 @@ class ModelPlats {
   final String titre;
   final String sousTitre;
   final String price;
+  final String image;
   const ModelPlats({
     @required this.id,
     @required this.categories,
     @required this.titre,
     @required this.sousTitre,
     @required this.price,
+    @required this.image,
   });
 }
