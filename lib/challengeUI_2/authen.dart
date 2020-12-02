@@ -35,37 +35,46 @@ class _AuthenState extends State<Authen> with SingleTickerProviderStateMixin {
   // }
 
   @override
-  Widget itemAuth(String text, Color textLabel, int page) {
-    return Expanded(
-      child: InkWell(
-        // onTap: () {
-        //   controller.animateToPage(page,
-        //       duration: Duration(milliseconds: 400), curve: Curves.easeIn);
-        //   setState(() {
-        //     currentIndex = page;
-        //   });
-        // },
-        child: Container(
-          child: Column(
-            children: <Widget>[
-              Text(
-                text,
-                style:
-                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 10),
-              Container(
-                height: 5,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  // color:
-                  //     page == currentIndex ? Colors.red : Colors.transparent),
-                ),
-              ),
-            ],
+  Widget itemTab(String btn) {
+    return Column(
+      children: <Widget>[
+        Text(
+          'Adresse Email',
+          style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
+        ),
+        Container(
+          width: MediaQuery.of(context).size.width / 1.3,
+          child: TextField(),
+        ),
+        SizedBox(height: 50),
+        Text(
+          'Mot de passe',
+          style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
+        ),
+        Container(
+          width: MediaQuery.of(context).size.width / 1.3,
+          child: TextField(),
+        ),
+        SizedBox(height: 40),
+        Text(
+          'Mot de passe oublié ?',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Color.fromRGBO(239, 46, 41, 1),
           ),
         ),
-      ),
+        SizedBox(height: 50),
+        Container(
+          width: MediaQuery.of(context).size.width / 1.3,
+          height: 60,
+          decoration: BoxDecoration(
+            color: Color.fromRGBO(239, 46, 41, 1),
+            borderRadius: BorderRadius.circular(20),
+          ),
+          alignment: Alignment.center,
+          child: Text(btn, style: TextStyle(color: Colors.white)),
+        ),
+      ],
     );
   }
 
@@ -117,14 +126,14 @@ class _AuthenState extends State<Authen> with SingleTickerProviderStateMixin {
                             padding: EdgeInsets.symmetric(
                                 horizontal: 20, vertical: 10),
                             child: new Text(
-                              'Foods',
+                              'Connexion',
                             ),
                           ),
                           Container(
                             padding: EdgeInsets.symmetric(
                                 horizontal: 20, vertical: 10),
                             child: new Text(
-                              'Drives',
+                              'Inscription',
                             ),
                           ),
                         ],
@@ -146,92 +155,8 @@ class _AuthenState extends State<Authen> with SingleTickerProviderStateMixin {
               child: TabBarView(
                 controller: _tabController,
                 children: <Widget>[
-                  Column(
-                    children: <Widget>[
-                      Text(
-                        'Email adresse',
-                        style: TextStyle(
-                            color: Colors.grey, fontWeight: FontWeight.bold),
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width / 1.3,
-                        child: TextField(),
-                      ),
-                      SizedBox(height: 50),
-                      Text(
-                        'Password',
-                        style: TextStyle(
-                            color: Colors.grey, fontWeight: FontWeight.bold),
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width / 1.3,
-                        child: TextField(),
-                      ),
-                      SizedBox(height: 40),
-                      Text(
-                        'Forgot password ?',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromRGBO(239, 46, 41, 1),
-                        ),
-                      ),
-                      SizedBox(height: 50),
-                      Container(
-                        width: MediaQuery.of(context).size.width / 1.3,
-                        height: 60,
-                        decoration: BoxDecoration(
-                          color: Color.fromRGBO(239, 46, 41, 1),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        alignment: Alignment.center,
-                        child: Text('Login',
-                            style: TextStyle(color: Colors.white)),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: <Widget>[
-                      Text(
-                        'Email adresse',
-                        style: TextStyle(
-                            color: Colors.grey, fontWeight: FontWeight.bold),
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width / 1.3,
-                        child: TextField(),
-                      ),
-                      SizedBox(height: 50),
-                      Text(
-                        'Password',
-                        style: TextStyle(
-                            color: Colors.grey, fontWeight: FontWeight.bold),
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width / 1.3,
-                        child: TextField(),
-                      ),
-                      SizedBox(height: 40),
-                      Text(
-                        'Forgot password ?',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromRGBO(239, 46, 41, 1),
-                        ),
-                      ),
-                      SizedBox(height: 50),
-                      Container(
-                        width: MediaQuery.of(context).size.width / 1.3,
-                        height: 60,
-                        decoration: BoxDecoration(
-                          color: Color.fromRGBO(239, 46, 41, 1),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        alignment: Alignment.center,
-                        child: Text('Sign up',
-                            style: TextStyle(color: Colors.white)),
-                      ),
-                    ],
-                  ),
+                  itemTab('connexion'),
+                  itemTab('inscription'),
                 ],
               ),
             )
