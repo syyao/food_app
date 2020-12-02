@@ -29,6 +29,7 @@ class _BottomNavigatorState extends State<BottomNavigator> {
     return Scaffold(
         body: viewList.elementAt(pageIndex),
         bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
           selectedItemColor: Color.fromRGBO(239, 46, 41, 1),
           unselectedItemColor: Colors.grey,
           currentIndex: pageIndex,
@@ -37,19 +38,19 @@ class _BottomNavigatorState extends State<BottomNavigator> {
           onTap: onTapped,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              title: Text(""),
+              label: "",
               icon: Icon(Icons.home),
             ),
             BottomNavigationBarItem(
-              title: Text(""),
+              label: "",
               icon: Icon(Icons.favorite_border),
             ),
             BottomNavigationBarItem(
-              title: Text(""),
+              label: "",
               icon: Icon(Icons.person),
             ),
             BottomNavigationBarItem(
-              title: Text(""),
+              label: "",
               icon: Icon(
                 Icons.schedule,
               ),

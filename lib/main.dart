@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/challengeUI_2/favoritePage.dart';
 import 'package:food_app/challengeUI_2/security.dart';
-import 'package:food_app/challengeUI_2/testTab.dart';
 import 'challengeUI_2/authen.dart';
 import 'challengeUI_2/bottomNavigator.dart';
 import 'challengeUI_2/cart.dart';
-import 'challengeUI_2/getStarted.dart';
 import 'challengeUI_2/offers_and_promo.dart';
 import 'challengeUI_2/pageHom.dart';
 import 'challengeUI_2/privacy_policy.dart';
