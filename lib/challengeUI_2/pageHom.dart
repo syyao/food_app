@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/challengeUI_2/models/foodModel.dart';
 
 import 'drawer.dart';
+import 'models/food_data.dart';
 
 class PageHom extends StatefulWidget {
   @override
@@ -215,6 +217,26 @@ class _MainBodyState extends State<MainBody>
                   height: 60,
                   child: TabBar(
                     tabs: [
+                      // FOOD_CATEGORIE
+                      //     .map(
+                      //       (catData) => Container(
+                      //         padding: EdgeInsets.symmetric(
+                      //             horizontal: 20, vertical: 10),
+                      //         child: new Text(
+                      //           'Foods',
+                      //         ),
+                      //       ),
+                      //     )
+                      //     .toList(),
+                      ListView.builder(
+                          itemCount: FOOD_CATEGORIE.length,
+                          itemBuilder: (context, i) {
+                            return Container(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 20, vertical: 10),
+                              child: new Text(FOOD_CATEGORIE[i].titre),
+                            );
+                          }),
                       Container(
                         padding:
                             EdgeInsets.symmetric(horizontal: 20, vertical: 10),
