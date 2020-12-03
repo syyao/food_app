@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/challengeUI_2/models/foodModel.dart';
+import 'package:food_app/challengeUI_2/models/food_data.dart';
 
 import 'drawer.dart';
-import 'models/food_data.dart';
 
 class PageHom extends StatefulWidget {
   @override
@@ -86,39 +85,6 @@ class _MainBodyState extends State<MainBody>
     );
   }
 
-  Widget item(String title, int page) {
-    return InkWell(
-      onTap: () {
-        controller.animateToPage(page,
-            duration: Duration(milliseconds: 400), curve: Curves.easeIn);
-        setState(() {
-          currentIndex = page;
-        });
-      },
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        decoration: BoxDecoration(
-            color: Colors.transparent,
-            border: Border(
-                bottom: BorderSide(
-                    color: page == currentIndex
-                        ? Color.fromRGBO(239, 46, 41, 1)
-                        : Colors.transparent,
-                    width: 2))),
-        child: Column(
-          children: <Widget>[
-            Text(
-              title,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
   Widget itemNav(Color colorIndex, IconData icone, String routeName) {
     return IconButton(
       icon: Icon(icone),
@@ -146,6 +112,7 @@ class _MainBodyState extends State<MainBody>
 
   @override
   Widget build(BuildContext context) {
+    print(FOOD_CATEGORIE.length);
     return SafeArea(
       child: Column(
         children: <Widget>[
@@ -169,14 +136,14 @@ class _MainBodyState extends State<MainBody>
             ),
           ),
           Expanded(
-            child: ListView(
+            child: Column(
               children: <Widget>[
                 Row(
                   children: <Widget>[
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Text(
-                        'Delicious\nfood for you',
+                        'Délicieux\nPlats pour vous',
                         style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
@@ -204,7 +171,7 @@ class _MainBodyState extends State<MainBody>
                               Icons.search,
                               color: Colors.grey,
                             ),
-                            hintText: 'search',
+                            hintText: 'rechercher',
                             border: InputBorder.none,
                           ),
                         ),
@@ -217,68 +184,16 @@ class _MainBodyState extends State<MainBody>
                   height: 60,
                   child: TabBar(
                     tabs: [
-                      // FOOD_CATEGORIE
-                      //     .map(
-                      //       (catData) => Container(
-                      //         padding: EdgeInsets.symmetric(
-                      //             horizontal: 20, vertical: 10),
-                      //         child: new Text(
-                      //           'Foods',
-                      //         ),
-                      //       ),
-                      //     )
-                      //     .toList(),
-                      ListView.builder(
-                          itemCount: FOOD_CATEGORIE.length,
-                          itemBuilder: (context, i) {
-                            return Container(
+                      ...FOOD_CATEGORIE.map((e) => InkWell(
+                            onTap: () {},
+                            child: Container(
                               padding: EdgeInsets.symmetric(
                                   horizontal: 20, vertical: 10),
-                              child: new Text(FOOD_CATEGORIE[i].titre),
-                            );
-                          }),
-                      Container(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                        child: new Text(
-                          'Foods',
-                        ),
-                      ),
-                      Container(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                        child: new Text(
-                          'Drives',
-                        ),
-                      ),
-                      Container(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                        child: new Text(
-                          'Snacks',
-                        ),
-                      ),
-                      Container(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                        child: new Text(
-                          'Sauces',
-                        ),
-                      ),
-                      Container(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                        child: new Text(
-                          'Sauces',
-                        ),
-                      ),
-                      Container(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                        child: new Text(
-                          'Foods',
-                        ),
-                      ),
+                              child: new Text(
+                                e.titre,
+                              ),
+                            ),
+                          )),
                     ],
                     unselectedLabelColor: const Color(0xffacb3bf),
                     indicatorColor: Color.fromRGBO(239, 46, 41, 1),
@@ -290,60 +205,46 @@ class _MainBodyState extends State<MainBody>
                     controller: _tabController,
                   ),
                 ),
-                // Container(
-                //   width: MediaQuery.of(context).size.width,
-                //   height: 50,
-                //   child: ListView(
-                //     scrollDirection: Axis.horizontal,
-                //     children: <Widget>[
-                //       item('Foods', 0),
-                //       item('Drives', 1),
-                //       item('Snacks', 2),
-                //       item('Sauces', 3),
-                //       item('Sauces', 4),
-                //     ],
-                //   ),
-                // ),
-                SizedBox(height: 10),
-                Padding(
-                  padding: const EdgeInsets.only(right: 30),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: <Widget>[
-                      Text(
-                        'see more',
-                        style: TextStyle(
-                          color: Color.fromRGBO(239, 46, 41, 1),
-                          fontWeight: FontWeight.bold,
-                        ),
-                      )
-                    ],
+
+                Expanded(
+                  child: GridView.builder(
+                    padding: EdgeInsets.only(top: 45, left: 30),
+                    gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                      maxCrossAxisExtent: 205,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 25,
+                    ),
+                    itemCount: 4,
+                    itemBuilder: (context, i) {
+                      return foodMenu('images/food.png');
+                    },
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: <Widget>[
-                    Column(
-                      children: <Widget>[
-                        foodMenu('images/food.png'),
-                        SizedBox(height: 100),
-                        foodMenu('images/food.png'),
-                        SizedBox(height: 100),
-                        foodMenu('images/food.png'),
-                      ],
-                    ),
-                    Column(
-                      children: <Widget>[
-                        SizedBox(height: 100),
-                        foodMenu('images/food1.png'),
-                        SizedBox(height: 100),
-                        foodMenu('images/food1.png'),
-                        SizedBox(height: 100),
-                        foodMenu('images/food1.png'),
-                      ],
-                    ),
-                  ],
-                )
+
+                //   Row(
+                //     mainAxisAlignment: MainAxisAlignment.spaceAround,
+                //     children: <Widget>[
+                //       Column(
+                //         children: <Widget>[
+                //           foodMenu('images/food.png'),
+                //           SizedBox(height: 100),
+                //           foodMenu('images/food.png'),
+                //           SizedBox(height: 100),
+                //           foodMenu('images/food.png'),
+                //         ],
+                //       ),
+                //       Column(
+                //         children: <Widget>[
+                //           SizedBox(height: 100),
+                //           foodMenu('images/food1.png'),
+                //           SizedBox(height: 100),
+                //           foodMenu('images/food1.png'),
+                //           SizedBox(height: 100),
+                //           foodMenu('images/food1.png'),
+                //         ],
+                //       ),
+                //     ],
+                //   )
               ],
             ),
           ),

@@ -3,11 +3,11 @@ import 'foodModel.dart';
 const FOOD_CATEGORIE = const [
   Categorie(
     id: 'c1',
-    titre: 'foutou',
+    titre: 'Foutou',
   ),
   Categorie(
     id: 'c2',
-    titre: 'riz',
+    titre: 'Riz',
   ),
   Categorie(
     id: 'c3',
@@ -23,7 +23,7 @@ const FOOD_CATEGORIE = const [
   ),
   Categorie(
     id: 'c6',
-    titre: 'aloco',
+    titre: 'Alloco',
   ),
 ];
 
