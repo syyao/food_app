@@ -212,8 +212,9 @@ class _MainBodyState extends State<MainBody>
                       crossAxisSpacing: 10,
                       mainAxisSpacing: 25,
                     ),
-                    itemCount: 4,
+                    itemCount: FOOD_CATEGORIE.length,
                     itemBuilder: (context, i) {
+                      var categorie = FOOD_CATEGORIE[i];
                       return foodMenu('images/food.png');
                     },
                   ),
