@@ -183,15 +183,13 @@ class _MainBodyState extends State<MainBody>
                 Container(
                   height: 60,
                   child: TabBar(
+                    onTap: (val) => print("Tab Bar $val"),
                     tabs: [
-                      ...FOOD_CATEGORIE.map((e) => InkWell(
-                            onTap: () {},
-                            child: Container(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 20, vertical: 10),
-                              child: new Text(
-                                e.titre,
-                              ),
+                      ...FOOD_CATEGORIE.map((e) => Container(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 10),
+                            child: new Text(
+                              e.titre,
                             ),
                           )),
                     ],
