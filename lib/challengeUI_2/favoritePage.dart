@@ -81,7 +81,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
               ),
             ],
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
