@@ -27,7 +27,12 @@ class _MainBodyState extends State<MainBody>
     with SingleTickerProviderStateMixin {
   final controller = PageController(initialPage: 0);
   int currentIndex = 0;
-  Widget foodMenu(String image) {
+  Widget foodMenu(
+    String image,
+    String titre,
+    final String sousTitre,
+    final String price,
+  ) {
     return Stack(
       overflow: Overflow.visible,
       children: <Widget>[
@@ -50,18 +55,18 @@ class _MainBodyState extends State<MainBody>
             children: <Widget>[
               SizedBox(height: 50),
               Text(
-                'Veggie',
+                titre,
                 style:
                     TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
               Text(
-                'Tomato mix',
+                sousTitre,
                 style:
                     TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 20),
               Text(
-                'N1,900',
+                price,
                 style: TextStyle(
                     color: Color.fromRGBO(239, 46, 41, 1),
                     fontWeight: FontWeight.bold),
@@ -101,7 +106,7 @@ class _MainBodyState extends State<MainBody>
   void initState() {
 // TODO: implement initState
     super.initState();
-    _tabController = new TabController(length: 6, vsync: this);
+    _tabController = new TabController(length: FOOD_CATEGORIE.length, vsync: this);
   }
 
   @override
@@ -222,7 +227,11 @@ class _MainBodyState extends State<MainBody>
                             ),
                             itemCount: e.listDePLats.length,
                             itemBuilder: (context, i) {
-                              return foodMenu('images/food.png');
+                              return foodMenu(
+                                  e.listDePLats[i].image,
+                                  e.listDePLats[i].titre,
+                                  e.listDePLats[i].sousTitre,
+                                  e.listDePLats[i].price);
                             },
                           ),
                         ),

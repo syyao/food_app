@@ -2,6 +2,44 @@ import 'foodModel.dart';
 
 const FOOD_CATEGORIE = const [
   Categorie(
+    id: 'c7',
+    titre: 'Traditionelle',
+    listDePLats: [
+      ModelPlats(
+        id: 'p32',
+        idCategorie: 'c7',
+        titre: 'Bawan',
+        sousTitre: 'Feulle de manioc avec huil rouge ;-)',
+        price: '400',
+        image: 'images/foufou.jpg',
+      ),
+      ModelPlats(
+        id: 'p4',
+        idCategorie: 'c1',
+        titre: 'Foutou',
+        sousTitre: 'Foutou Banane ',
+        price: '1500',
+        image: 'images/foutou.jpg',
+      ),
+      ModelPlats(
+        id: 'p5',
+        idCategorie: 'c1',
+        titre: 'Foutou',
+        sousTitre: 'foutou Igname',
+        price: '2000',
+        image: 'images/foutou1.jpg',
+      ),
+      ModelPlats(
+        id: 'p6',
+        idCategorie: 'c1',
+        titre: 'foutou',
+        sousTitre: 'foutou manioc',
+        price: '1500',
+        image: 'images/foutou.jpg',
+      ),
+    ],
+  ),
+  Categorie(
     id: 'c1',
     titre: 'foutou',
     listDePLats: [
