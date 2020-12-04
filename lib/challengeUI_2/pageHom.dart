@@ -36,42 +36,45 @@ class _MainBodyState extends State<MainBody>
     return Stack(
       overflow: Overflow.visible,
       children: <Widget>[
-        Container(
-          height: MediaQuery.of(context).size.height / 5,
-          width: MediaQuery.of(context).size.width / 3,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
-            boxShadow: [
-              BoxShadow(
-                offset: Offset(8, 6),
-                blurRadius: 10,
-                color: Colors.grey[300],
-              ),
-            ],
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              SizedBox(height: 50),
-              Text(
-                titre,
-                style:
-                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-              ),
-              Text(
-                sousTitre,
-                style:
-                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 20),
-              Text(
-                price,
-                style: TextStyle(
-                    color: Color.fromRGBO(239, 46, 41, 1),
-                    fontWeight: FontWeight.bold),
-              ),
-            ],
+        InkWell(
+          onTap: () {},
+          child: Container(
+            height: MediaQuery.of(context).size.height / 5,
+            width: MediaQuery.of(context).size.width / 3,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+              boxShadow: [
+                BoxShadow(
+                  offset: Offset(8, 6),
+                  blurRadius: 10,
+                  color: Colors.grey[300],
+                ),
+              ],
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(height: 50),
+                Text(
+                  titre,
+                  style: TextStyle(
+                      color: Colors.black, fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  sousTitre,
+                  style: TextStyle(
+                      color: Colors.black, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 20),
+                Text(
+                  price,
+                  style: TextStyle(
+                      color: Color.fromRGBO(239, 46, 41, 1),
+                      fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
           ),
         ),
         Positioned(
@@ -106,7 +109,8 @@ class _MainBodyState extends State<MainBody>
   void initState() {
 // TODO: implement initState
     super.initState();
-    _tabController = new TabController(length: FOOD_CATEGORIE.length, vsync: this);
+    _tabController =
+        new TabController(length: FOOD_CATEGORIE.length, vsync: this);
   }
 
   @override

@@ -4,6 +4,7 @@ import 'package:food_app/challengeUI_2/security.dart';
 import 'challengeUI_2/authen.dart';
 import 'challengeUI_2/bottomNavigator.dart';
 import 'challengeUI_2/cart.dart';
+import 'challengeUI_2/food_detail.dart';
 import 'challengeUI_2/offers_and_promo.dart';
 import 'challengeUI_2/pageHom.dart';
 import 'challengeUI_2/privacy_policy.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: BottomNavigator(),
+        home: FooDetail(),
         routes: {
           'pagehom': (context) => PageHom(),
           'cart': (context) => Cart(),
