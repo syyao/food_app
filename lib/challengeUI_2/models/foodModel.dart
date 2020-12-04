@@ -14,12 +14,14 @@ class Categorie {
 
 class ModelPlats {
   final String id;
+  final String idCategorie;
   final String titre;
   final String sousTitre;
   final String price;
   final String image;
   const ModelPlats({
     @required this.id,
+    @required this.idCategorie,
     @required this.titre,
     @required this.sousTitre,
     @required this.price,

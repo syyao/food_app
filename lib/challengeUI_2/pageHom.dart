@@ -113,150 +113,161 @@ class _MainBodyState extends State<MainBody>
   @override
   Widget build(BuildContext context) {
     print(FOOD_CATEGORIE.length);
-    return SafeArea(
-      child: Column(
-        children: <Widget>[
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                IconButton(
+
+    return DefaultTabController(
+      length: FOOD_CATEGORIE.length,
+      child: SafeArea(
+        child: Column(
+          children: <Widget>[
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  IconButton(
+                      onPressed: () {
+                        Scaffold.of(context).openDrawer();
+                      },
+                      icon: Icon(Icons.menu)),
+                  IconButton(
                     onPressed: () {
-                      Scaffold.of(context).openDrawer();
+                      Navigator.of(context).pushNamed('cart');
                     },
-                    icon: Icon(Icons.menu)),
-                IconButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('cart');
-                  },
-                  icon: Icon(Icons.shopping_cart, color: Colors.grey),
-                )
-              ],
+                    icon: Icon(Icons.shopping_cart, color: Colors.grey),
+                  )
+                ],
+              ),
             ),
-          ),
-          Expanded(
-            child: Column(
-              children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Text(
-                        'Délicieux\nPlats pour vous',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 30),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 20),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Row(
+            Expanded(
+              child: Column(
+                children: <Widget>[
+                  Row(
                     children: <Widget>[
                       Container(
-                        height: 60,
-                        width: MediaQuery.of(context).size.width / 1.3,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          color: Colors.grey[300],
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        child: TextField(
-                          decoration: InputDecoration(
-                            prefixIcon: Icon(
-                              Icons.search,
-                              color: Colors.grey,
-                            ),
-                            hintText: 'rechercher',
-                            border: InputBorder.none,
-                          ),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Text(
+                          'Délicieux\nPlats pour vous',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 30),
                         ),
                       ),
                     ],
                   ),
-                ),
-                SizedBox(height: 20),
-                Container(
-                  height: 60,
-                  child: TabBar(
-                    onTap: (val) => print("Tab Bar $val"),
-                    tabs: [
-                      ...FOOD_CATEGORIE.map((e) => Container(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 10),
-                            child: new Text(
-                              e.titre,
+                  SizedBox(height: 20),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Row(
+                      children: <Widget>[
+                        Container(
+                          height: 60,
+                          width: MediaQuery.of(context).size.width / 1.3,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: Colors.grey[300],
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          child: TextField(
+                            decoration: InputDecoration(
+                              prefixIcon: Icon(
+                                Icons.search,
+                                color: Colors.grey,
+                              ),
+                              hintText: 'rechercher',
+                              border: InputBorder.none,
                             ),
-                          )),
-                    ],
-                    unselectedLabelColor: const Color(0xffacb3bf),
-                    indicatorColor: Color.fromRGBO(239, 46, 41, 1),
-                    labelColor: Colors.black,
-                    indicatorSize: TabBarIndicatorSize.tab,
-                    indicatorWeight: 3,
-                    indicatorPadding: EdgeInsets.all(10),
-                    isScrollable: true,
-                    controller: _tabController,
-                  ),
-                ),
-
-                Expanded(
-                  child: GridView.builder(
-                    padding: EdgeInsets.only(top: 45, left: 30),
-                    gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                      maxCrossAxisExtent: 205,
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 25,
+                          ),
+                        ),
+                      ],
                     ),
-                    itemCount: FOOD_CATEGORIE.length,
-                    itemBuilder: (context, i) {
-                      var categorie = FOOD_CATEGORIE[i];
-                      return foodMenu('images/food.png');
-                    },
                   ),
-                ),
+                  SizedBox(height: 20),
+                  Container(
+                    height: 60,
+                    child: TabBar(
+                      onTap: (val) => print("Tab Bar $val"),
+                      tabs: [
+                        ...FOOD_CATEGORIE.map((e) => Container(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 20, vertical: 10),
+                              child: new Text(
+                                e.titre,
+                              ),
+                            )),
+                      ],
+                      unselectedLabelColor: const Color(0xffacb3bf),
+                      indicatorColor: Color.fromRGBO(239, 46, 41, 1),
+                      labelColor: Colors.black,
+                      indicatorSize: TabBarIndicatorSize.tab,
+                      indicatorWeight: 3,
+                      indicatorPadding: EdgeInsets.all(10),
+                      isScrollable: true,
+                      controller: _tabController,
+                    ),
+                  ),
 
-                //   Row(
-                //     mainAxisAlignment: MainAxisAlignment.spaceAround,
-                //     children: <Widget>[
-                //       Column(
-                //         children: <Widget>[
-                //           foodMenu('images/food.png'),
-                //           SizedBox(height: 100),
-                //           foodMenu('images/food.png'),
-                //           SizedBox(height: 100),
-                //           foodMenu('images/food.png'),
-                //         ],
-                //       ),
-                //       Column(
-                //         children: <Widget>[
-                //           SizedBox(height: 100),
-                //           foodMenu('images/food1.png'),
-                //           SizedBox(height: 100),
-                //           foodMenu('images/food1.png'),
-                //           SizedBox(height: 100),
-                //           foodMenu('images/food1.png'),
-                //         ],
-                //       ),
-                //     ],
-                //   )
-              ],
+                  Expanded(
+                    child: TabBarView(
+                      controller: _tabController,
+                      children: <Widget>[
+                        ...FOOD_CATEGORIE.map(
+                          (e) => GridView.builder(
+                            padding: EdgeInsets.only(top: 45, left: 30),
+                            gridDelegate:
+                                SliverGridDelegateWithMaxCrossAxisExtent(
+                              maxCrossAxisExtent: 205,
+                              crossAxisSpacing: 10,
+                              mainAxisSpacing: 25,
+                            ),
+                            itemCount: e.listDePLats.length,
+                            itemBuilder: (context, i) {
+                              return foodMenu('images/food.png');
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  //   Row(
+                  //     mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  //     children: <Widget>[
+                  //       Column(
+                  //         children: <Widget>[
+                  //           foodMenu('images/food.png'),
+                  //           SizedBox(height: 100),
+                  //           foodMenu('images/food.png'),
+                  //           SizedBox(height: 100),
+                  //           foodMenu('images/food.png'),
+                  //         ],
+                  //       ),
+                  //       Column(
+                  //         children: <Widget>[
+                  //           SizedBox(height: 100),
+                  //           foodMenu('images/food1.png'),
+                  //           SizedBox(height: 100),
+                  //           foodMenu('images/food1.png'),
+                  //           SizedBox(height: 100),
+                  //           foodMenu('images/food1.png'),
+                  //         ],
+                  //       ),
+                  //     ],
+                  //   )
+                ],
+              ),
             ),
-          ),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.spaceAround,
-          //   children: <Widget>[
-          //     itemNav(Color.fromRGBO(239, 46, 41, 1), Icons.home, 'pagehom'),
-          //     itemNav(Colors.grey, Icons.favorite_border, 'favorite'),
-          //     itemNav(Colors.grey, Icons.person, 'profil'),
-          //     itemNav(Colors.grey, Icons.schedule, 'schedule'),
-          //   ],
-          // )
-        ],
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+            //   children: <Widget>[
+            //     itemNav(Color.fromRGBO(239, 46, 41, 1), Icons.home, 'pagehom'),
+            //     itemNav(Colors.grey, Icons.favorite_border, 'favorite'),
+            //     itemNav(Colors.grey, Icons.person, 'profil'),
+            //     itemNav(Colors.grey, Icons.schedule, 'schedule'),
+            //   ],
+            // )
+          ],
+        ),
       ),
     );
   }
