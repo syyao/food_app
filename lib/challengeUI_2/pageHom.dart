@@ -43,7 +43,7 @@ class _MainBodyState extends State<MainBody>
             Navigator.push(
               context,
               SlideTrans(
-                widget: FooDetail(titre, image),
+                widget: FooDetail(sousTitre, image),
               ),
             );
           },

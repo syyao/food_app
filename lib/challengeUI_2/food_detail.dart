@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:food_app/challengeUI_2/pageHom.dart';
 
 class FooDetail extends StatefulWidget {
-  final String titre;
+  final String sousTitre;
   final String image;
-  FooDetail(this.titre, this.image);
+  FooDetail(this.sousTitre, this.image);
   @override
   _FooDetailState createState() => _FooDetailState();
 }
@@ -34,18 +34,16 @@ class _FooDetailState extends State<FooDetail> {
                 IconButton(icon: Icon(Icons.shopping_cart), onPressed: () {}),
               ],
             ),
-            Padding(
+            Container(
               padding: const EdgeInsets.all(20),
-              child: Row(
-                children: [
-                  Text(
-                    widget.titre,
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
+              alignment: Alignment.centerLeft,
+              child: Text(
+                widget.sousTitre,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             Row(
@@ -100,6 +98,25 @@ class _FooDetailState extends State<FooDetail> {
           ]),
         ),
       ),
+      floatingActionButton: Container(
+          decoration: BoxDecoration(
+              color: Colors.white, borderRadius: BorderRadius.circular(10)),
+          width: MediaQuery.of(context).size.width / 3,
+          padding: EdgeInsets.all(10),
+          child: Row(
+            children: <Widget>[
+              Icon(
+                Icons.restaurant,
+                color: Color.fromRGBO(239, 46, 41, 1),
+              ),
+              Text(
+                'Commander',
+                style: TextStyle(
+                  color: Color.fromRGBO(239, 46, 41, 1),
+                ),
+              )
+            ],
+          )),
     );
   }
 }
