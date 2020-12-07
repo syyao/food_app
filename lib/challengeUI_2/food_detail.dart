@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:food_app/challengeUI_2/pageHom.dart';
 
 class FooDetail extends StatefulWidget {
+  final String titre;
+  final String image;
+  FooDetail(this.titre, this.image);
   @override
   _FooDetailState createState() => _FooDetailState();
 }
@@ -19,7 +22,11 @@ class _FooDetailState extends State<FooDetail> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                IconButton(icon: Icon(Icons.arrow_back), onPressed: () {}),
+                IconButton(
+                    icon: Icon(Icons.arrow_back),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    }),
                 Text(
                   'Menu',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -32,7 +39,7 @@ class _FooDetailState extends State<FooDetail> {
               child: Row(
                 children: [
                   Text(
-                    'Egg & sauvage',
+                    widget.titre,
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -53,11 +60,11 @@ class _FooDetailState extends State<FooDetail> {
             ),
             Container(
               height: 250,
+              width: 250,
               decoration: BoxDecoration(
                   border: Border.all(width: 5, color: Colors.blue[50]),
                   shape: BoxShape.circle,
-                  image:
-                      DecorationImage(image: AssetImage('images/foutou.jpg'))),
+                  image: DecorationImage(image: AssetImage(widget.image))),
             ),
             SizedBox(
               height: 20,

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/animations/transitions/slideTransition.dart';
 import 'package:food_app/challengeUI_2/models/food_data.dart';
 
 import 'drawer.dart';
+import 'food_detail.dart';
 
 class PageHom extends StatefulWidget {
   @override
@@ -37,7 +39,14 @@ class _MainBodyState extends State<MainBody>
       overflow: Overflow.visible,
       children: <Widget>[
         InkWell(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+              context,
+              SlideTrans(
+                widget: FooDetail(titre, image),
+              ),
+            );
+          },
           child: Container(
             height: MediaQuery.of(context).size.height / 5,
             width: MediaQuery.of(context).size.width / 3,
@@ -232,10 +241,11 @@ class _MainBodyState extends State<MainBody>
                             itemCount: e.listDePLats.length,
                             itemBuilder: (context, i) {
                               return foodMenu(
-                                  e.listDePLats[i].image,
-                                  e.listDePLats[i].titre,
-                                  e.listDePLats[i].sousTitre,
-                                  e.listDePLats[i].price);
+                                e.listDePLats[i].image,
+                                e.listDePLats[i].titre,
+                                e.listDePLats[i].sousTitre,
+                                e.listDePLats[i].price,
+                              );
                             },
                           ),
                         ),

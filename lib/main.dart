@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: FooDetail(),
+        home: BottomNavigator(),
         routes: {
           'pagehom': (context) => PageHom(),
           'cart': (context) => Cart(),
