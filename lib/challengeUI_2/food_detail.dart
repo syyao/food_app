@@ -101,7 +101,7 @@ class _FooDetailState extends State<FooDetail> {
       floatingActionButton: Container(
           decoration: BoxDecoration(
               color: Colors.white, borderRadius: BorderRadius.circular(10)),
-          width: MediaQuery.of(context).size.width / 3,
+          width: MediaQuery.of(context).size.width / 2.9,
           padding: EdgeInsets.all(10),
           child: Row(
             children: <Widget>[

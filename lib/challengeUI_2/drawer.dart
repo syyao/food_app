@@ -43,7 +43,13 @@ Widget mainDrawer(BuildContext context) {
             thickness: 0.2,
           ),
           itemdrawer(Icons.security, 'security', 'Security'),
+          Divider(color: Colors.white, thickness: 0.2),
+          itemdrawer(Icons.textsms, 'Food_detail', 'detail'),
           SizedBox(height: 150),
+          Divider(
+            color: Colors.white,
+            thickness: 0.2,
+          ),
           Row(
             children: <Widget>[
               InkWell(
