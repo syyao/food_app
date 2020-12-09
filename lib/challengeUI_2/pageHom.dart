@@ -11,8 +11,10 @@ class PageHom extends StatefulWidget {
 }
 
 class _PageHomState extends State<PageHom> with SingleTickerProviderStateMixin {
+  
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
         drawer: mainDrawer(context),
         backgroundColor: Colors.grey[100],
@@ -130,6 +132,7 @@ class _MainBodyState extends State<MainBody>
 
   @override
   Widget build(BuildContext context) {
+
     print(FOOD_CATEGORIE.length);
 
     return DefaultTabController(
