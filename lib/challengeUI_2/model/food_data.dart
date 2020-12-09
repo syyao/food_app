@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
+
 import 'foodModel.dart';
 
-const FOOD_CATEGORIE = const [
+final FOOD_CATEGORIE = const [
   Categorie(
     id: 'c7',
     titre: 'Traditionelle',
@@ -220,3 +222,7 @@ const FOOD_CATEGORIE = const [
     ],
   ),
 ];
+
+class DataFood extends ValueNotifier<List<Categorie>> {
+  DataFood() : super(FOOD_CATEGORIE);
+}

@@ -19,6 +19,7 @@ class ModelPlats {
   final String sousTitre;
   final String price;
   final String image;
+  final bool isfavorite = false;
   const ModelPlats({
     @required this.id,
     @required this.idCategorie,

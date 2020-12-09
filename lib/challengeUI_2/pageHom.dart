@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/animations/transitions/slideTransition.dart';
-import 'package:food_app/challengeUI_2/models/food_data.dart';
 
 import 'drawer.dart';
 import 'food_detail.dart';
+import 'model/food_data.dart';
 
 class PageHom extends StatefulWidget {
   @override
