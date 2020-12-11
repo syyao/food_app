@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/animations/transitions/slideTransition.dart';
-import 'package:food_app/challengeUI_2/model/foodModel.dart';
 
 import 'drawer.dart';
 import 'food_detail.dart';
@@ -31,13 +30,7 @@ class _MainBodyState extends State<MainBody>
   final controller = PageController(initialPage: 0);
   int currentIndex = 0;
   Widget foodMenu(
-    String id,
-    String idCategorie,
-    String image,
-    String titre,
-    final String sousTitre,
-    final String price,
-  ) {
+      String image, String titre, final String sousTitre, final String price) {
     return Stack(
       overflow: Overflow.visible,
       children: <Widget>[
@@ -241,17 +234,14 @@ class _MainBodyState extends State<MainBody>
                               crossAxisSpacing: 10,
                               mainAxisSpacing: 25,
                             ),
-                            // itemCount: e.listDePLats.length,
-                            itemCount: listDePLats.length,
+                            itemCount: e.listDePLats.length,
                             itemBuilder: (context, i) {
                               return foodMenu(
-                                  // listDePLats[i].isfavorite,
-                                  listDePLats[i].id,
-                                  listDePLats[i].idCategorie,
-                                  listDePLats[i].image,
-                                  listDePLats[i].titre,
-                                  listDePLats[i].sousTitre,
-                                  listDePLats[i].price);
+                                e.listDePLats[i].image,
+                                e.listDePLats[i].titre,
+                                e.listDePLats[i].sousTitre,
+                                e.listDePLats[i].price,
+                              );
                             },
                           ),
                         ),
