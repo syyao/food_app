@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/animations/transitions/slideTransition.dart';
+import 'package:food_app/challengeUI_2/model/foodModel.dart';
 
 import 'drawer.dart';
 import 'food_detail.dart';
@@ -11,10 +12,8 @@ class PageHom extends StatefulWidget {
 }
 
 class _PageHomState extends State<PageHom> with SingleTickerProviderStateMixin {
-  
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
         drawer: mainDrawer(context),
         backgroundColor: Colors.grey[100],
@@ -32,6 +31,8 @@ class _MainBodyState extends State<MainBody>
   final controller = PageController(initialPage: 0);
   int currentIndex = 0;
   Widget foodMenu(
+    String id,
+    String idCategorie,
     String image,
     String titre,
     final String sousTitre,
@@ -132,7 +133,6 @@ class _MainBodyState extends State<MainBody>
 
   @override
   Widget build(BuildContext context) {
-
     print(FOOD_CATEGORIE.length);
 
     return DefaultTabController(
@@ -241,14 +241,17 @@ class _MainBodyState extends State<MainBody>
                               crossAxisSpacing: 10,
                               mainAxisSpacing: 25,
                             ),
-                            itemCount: e.listDePLats.length,
+                            // itemCount: e.listDePLats.length,
+                            itemCount: listDePLats.length,
                             itemBuilder: (context, i) {
                               return foodMenu(
-                                e.listDePLats[i].image,
-                                e.listDePLats[i].titre,
-                                e.listDePLats[i].sousTitre,
-                                e.listDePLats[i].price,
-                              );
+                                  // listDePLats[i].isfavorite,
+                                  listDePLats[i].id,
+                                  listDePLats[i].idCategorie,
+                                  listDePLats[i].image,
+                                  listDePLats[i].titre,
+                                  listDePLats[i].sousTitre,
+                                  listDePLats[i].price);
                             },
                           ),
                         ),

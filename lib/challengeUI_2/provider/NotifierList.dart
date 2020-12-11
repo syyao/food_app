@@ -7,6 +7,5 @@ class DataFood extends ValueNotifier<List<Categorie>> {
 
   void add() {
     notifyListeners();
-    
   }
 }

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/challengeUI_2/provider/NotifierList.dart';
+
+import 'model/foodModel.dart';
 
 class FavoriteScreen extends StatefulWidget {
   @override
@@ -64,55 +67,58 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
       item('images/food1.png'),
     ];
 
-    return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          SizedBox(height: 60),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                'Favorites',
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold),
-              ),
-            ],
-          ),
-          SizedBox(height: 20),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Icon(Icons.touch_app, color: Colors.grey),
-              Text(
-                'swipe on an item to delete',
-                style: TextStyle(color: Colors.grey),
-              ),
-            ],
-          ),
-          Expanded(
-            child: ListView.separated(
-                itemCount: todos.length,
-                separatorBuilder: (context, i) => SizedBox(height: 10),
-                itemBuilder: (context, index) {
-                  final todo = todos[index];
-                  return Dismissible(
-                      key: Key('$todo$index'),
-                      onDismissed: (direction) => todos.removeAt(index),
-                      background: Container(
-                        padding: const EdgeInsets.only(right: 60),
-                        alignment: Alignment.centerRight,
-                        child: CircleAvatar(
-                          backgroundColor: Colors.red,
-                          child: Icon(Icons.delete, color: Colors.white),
+    return ValueListenableBuilder(
+      valueListenable: DataFood(),
+      builder: (context, List<Categorie> value, _) => Scaffold(
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            SizedBox(height: 60),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'Favorites',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+            SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Icon(Icons.touch_app, color: Colors.grey),
+                Text(
+                  'swipe on an item to delete',
+                  style: TextStyle(color: Colors.grey),
+                ),
+              ],
+            ),
+            Expanded(
+              child: ListView.separated(
+                  itemCount: todos.length,
+                  separatorBuilder: (context, i) => SizedBox(height: 10),
+                  itemBuilder: (context, index) {
+                    final todo = todos[index];
+                    return Dismissible(
+                        key: Key('$todo$index'),
+                        onDismissed: (direction) => todos.removeAt(index),
+                        background: Container(
+                          padding: const EdgeInsets.only(right: 60),
+                          alignment: Alignment.centerRight,
+                          child: CircleAvatar(
+                            backgroundColor: Colors.red,
+                            child: Icon(Icons.delete, color: Colors.white),
+                          ),
                         ),
-                      ),
-                      child: todo);
-                }),
-          ),
-        ],
+                        child: todo);
+                  }),
+            ),
+          ],
+        ),
       ),
     );
   }
